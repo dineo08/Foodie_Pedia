@@ -1,0 +1,116 @@
+
+
+.results-container{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    margin-bottom: 10vh;
+    height: auto;
+    width: auto;
+
+}
+
+.popup{
+    background-color: rgba(15, 15, 15, 0.9);
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.popup div{
+    background-color: white;
+    padding: 40px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto auto 200px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-title {
+    font-family: 'Edwardian Script ITC', sans-serif;
+    text-align: center;
+    font-size: 62px;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.recipe-image img {
+    display: block;
+    margin: 0 auto; 
+    width: 250px;
+    height: 250px;
+    border-radius: 20px;
+    
+}
+
+.recipe-details {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.section-title {
+    font-family: 'Edwardian Script ITC', sans-serif;
+    font-size: 50px;
+    color: black;
+    margin-bottom: 15px;
+}
+
+.ingredient-list,
+.instruction-list {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.ingredient-list li,
+.instruction-list li {
+    font-size: 18px;
+    color: black;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.ingredient-list li::before,
+.instruction-list li::before {
+ 
+    color: #ff2e63;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    position: absolute;
+    left: 0;
+}
+
+.buttons {
+    text-align: center;
+    margin-top: 30px;
+}
+
+button
+.btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    background-color: #b4895d;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 10px;
+}
+
+.btn:hover {
+    background-color: #eae0ca;
+	color: #7c6152;
+}

@@ -1,0 +1,67 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie Pedia {% block title %}{% endblock title %}</title>
+    {% block css %}{% endblock css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<body>
+    <div class="topnav">
+        <div class="navbar-container">
+            <a href="{% url 'profile' %}" class="logo">
+                <img src="{% static 'img/logins.png' %}" alt="Logo">
+                <div>
+                    {{ request.user.first_name }} {{ request.user.last_name }}
+                </div>
+                
+            </a>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+               <li><a href="{% url 'saved_recipe' %}">Saved Recipes</a></li>
+               <li><a href="{% url 'suggested_recipes' %}">Suggested Recipes</a></li>
+               <li><a href="{% url 'logout' %}">LogOut</a></li>
+            
+            </ul>
+        </div>
+        
+    </div>
+    {% include 'message.html' %}
+
+    {% block content %}{% endblock content %}
+    {% block js %}{% endblock js %}
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <p>At Foodie Pedia, we're passionate about making<br> cooking easy and fun. Our mission is to help you <br>discover delicious recipes tailored to the ingredients<br> you have on hand. Join us on this culinary journey and transform your kitchen into a hub of<br> creativity and flavor.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: foodiepedia0@gmail.com</p>
+                <p>Phone: (+27)62-954-4112</p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <a href="https://www.facebook.com/profile.php?id=61561201144772&mibextid=kgKNwXMZbbhE3a11" class="fa fa-facebook" target=_blank></a> | <a href="https://www.instagram.com/_foodie.pedia" class="fa fa-instagram" target=_blank></a> | <a href="https://x.com/food_pedia24" class="fa fa-twitter" target=_blank></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Foodie Pedia
+        </div>
+    </footer>
+
+      <script>
+        setTimeout(function(){
+            if ($('#msg').length > 0){
+                $('#msg').remove();
+            }
+        }, 2000)
+      </script>
+</body>
+</html>

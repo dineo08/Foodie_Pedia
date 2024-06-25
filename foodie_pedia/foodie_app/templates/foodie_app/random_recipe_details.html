@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title%}{{fav.recipe_id.recipe_name}}{% endblock title %} 
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/results.css' %}" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+  rel="stylesheet"
+/>
+{% endblock css %} 
+
+{% block content %}
+<div class="results-container">
+    <div class="container">
+        <div class="recipe-image">
+          <img src="{% static 'img/image.png' %}" alt="Recipe Image" />
+        </div>
+        <h1 class="recipe-title">{{ recipe.recipe_name }}</h1>
+        <div class="recipe-details">
+          <h2 class="section-title">Ingredients</h2>
+          <ul class="ingredient-list">
+            {% for i in recipe.get_ingredients %}
+            <li>{{i}}</li>
+            {% endfor %}
+          </ul>
+      
+          <h2 class="section-title">Instructions</h2>
+          <ul class="ingredient-list">
+            {% for i in recipe.get_instructions %}
+            <li>{{i}}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="buttons">
+          {% if found %}
+          <form action="{% url 'delete_saved_recipe' recipe.recipe_id %}" method="post" id="deleteForm">
+            {% csrf_token %}
+            <button class="btn save-recipe-btn" onclick="confirmDelete()">Remove Recipe From Favourite</button>
+        </form>
+          {% else %}
+              <form action="{% url 'add_to_fav' recipe.recipe_id %}" method="post" id="myForm">
+                {% csrf_token %}
+                <button onclick="getName()" class="btn save-recipe-btn">Save Recipe</button>
+              </form>
+          {% endif %}
+        </div>
+    </div>
+    <div class="popup" id="popup">
+        <div>
+            <div>Enter a name for the recipe</div>
+            <div><input type="text" id="recipe_name"></div>
+            <div class="buttons">
+                <button id="submit_name" onclick="submitName()">Submit</button>
+                <button id="close_pop">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %} 
+
+{% block js %}
+
+<script src="{% static 'js/saverecipe.js' %}">
+    
+</script>
+{% endblock js %}

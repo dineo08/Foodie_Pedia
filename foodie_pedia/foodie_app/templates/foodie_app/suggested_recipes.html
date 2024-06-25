@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/savedrecipes.css' %}">
+{% endblock css %}
+
+{% block content %}
+
+<div class="container">
+    <h1 class="recipe-title">Suggested Recipes</h1>
+    <div class="recipe-list">
+    <!-- Repeat .recipe-item div for each saved recipe -->
+
+        {% if size > 0 %}
+            {% for rec in recipes %}
+                <div class="recipe-item">
+                    <h2 class="recipe-name">{{rec.recipe_name}}</h2>
+                    <!--
+                    <div class="recipe-summary">
+                        <p align="center">
+                            Added by {{rec.user_id.first_name}} {{rec.user_id.last_name}}
+                        </p>
+                    </div>
+                    -->
+                    <div class="buttons">
+                        <a href="{% url 'random_recipe_details' rec.recipe_id %}">
+                            <button class="btn view-recipe-btn">View Recipe</button>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+                <h2>Nothing to display yet</h2>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock content %}

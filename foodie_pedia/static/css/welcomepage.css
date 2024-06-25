@@ -1,0 +1,98 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:#3A3B3C;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background:  #125688;
+  color: white;
+}
+.fa-twitter {
+  background:  #125688;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+p{
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+  .bgimg {
+    /*
+    background-image: url('food1.avif');
+    */
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    
+    font-family: "Courier New", Courier, monospace;
+    font-size: 25px;
+  }
+  
+  
+  .middle {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  button {
+    
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color:cornflowerblue ;
+  }
+  button:hover {
+    background-color: antiquewhite;
+    color: dodgerblue;
+    border-color: blue;
+  }
+
+  img{
+    width: 300px;
+  }
+  
+  hr {
+    margin: auto;
+    width: 40%;
+  }
+  
+ 

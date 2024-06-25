@@ -1,0 +1,20 @@
+{% extends "account/account_base.html" %}
+{% load static %}
+{% block title %}Create an Account{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <h1>Sign Up</h1>
+        <form action="{% url 'sign_up' %}" method="post">
+            {% csrf_token %}
+            <div class="imgcontainer">
+                <img src="{% static 'img/logins.png' %}" alt="logins" class="avatar">
+            </div>
+            {{form.as_p}}
+            <button type="submit">Create Account</button>
+        </form>
+        <label>
+            <p>I have an Account <a href="{% url 'login' %}"><b>Login</b></a></p>
+        </label>
+    </div>
+{% endblock content %}

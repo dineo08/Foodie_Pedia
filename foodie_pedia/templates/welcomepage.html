@@ -1,0 +1,27 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie Pedia</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/welcomepage.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="bgimg" style="background-image: url({% static 'img/food1.avif' %})">
+        <div class="middle">
+          <img src="{% static 'img/bg.png' %}">
+          <h1>Welcome To Foodie Pedia</h1>
+          <a href="{% url 'login' %}"><button>LOGIN</button></a>
+          <a href="{% url 'sign_up' %}"><button>SIGN UP</button></a>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>Contact Us</p>   
+        <a href="https://www.facebook.com/profile.php?id=61561201144772&mibextid=kgKNwXMZbbhE3a11" class="fa fa-facebook" target=_blank></a>
+        <a href="#" class="fa fa-twitter" target=_blank></a>
+        <a href="https://www.instagram.com/_foodie.pedia" class="fa fa-instagram" target=_blank></a>
+      </footer>
+</body>
+</html>

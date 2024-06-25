@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Results{% endblock title %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/results.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+{% endblock css %}
+
+{% block content %}
+<div class="results-container">
+    <div class="container">
+        <div class="recipe-image">
+            <img src="{% static 'img/image.png' %}" alt="Recipe Image">
+        </div>
+        <h1 class="recipe-title"></h1>
+        <div class="recipe-details">
+            <h2 class="section-title">Ingredients</h2>
+            <ul class="ingredient-list">
+                {% for i in ingredients %}
+                    <li>{{i}}</li>
+                {% endfor %}
+            </ul>
+            <h2 class="section-title">Instructions</h2>
+            <ul class="instructions-list">
+                {% for i in instructions %}
+                    <li>{{i}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="buttons">
+            <form method="POST" id="myForm" action="{% url 'saverecipe'  %}">
+                {% csrf_token %}
+                <input type="hidden" id="title" name="title">
+                {% for i in ingredients %}
+                    <input type="hidden" name="ingredients" value="{{ i }}">
+                {% endfor %}
+                {% for i in instructions %}
+                    <input type="hidden" name="instructions" value="{{ i }}">
+                {% endfor %}
+                
+            </form>
+            <div>
+                <button onclick="getName()" class="btn save-recipe-btn">Save Recipe</button>
+            </div>
+        </div>
+    </div>
+    <div class="popup" id="popup">
+        <div>
+            <div>Enter a name for the recipe</div>
+            <div><input type="text" id="recipe_name"></div>
+            <div class="buttons">
+                <button id="submit_name" onclick="submitRecipeName()">Submit</button>
+                <button id="close_pop">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+
+{% block js %}
+<script src="{% static 'js/saverecipe.js' %}">
+    
+</script>
+{% endblock js %}

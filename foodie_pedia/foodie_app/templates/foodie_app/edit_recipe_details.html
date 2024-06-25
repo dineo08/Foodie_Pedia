@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/results.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        #confirm{
+            background-color: green;
+        }
+        #confirm:hover{
+            background-color: rgb(0, 255, 0);
+            color: green;
+        }
+        #cancel{
+            background-color: red;
+        }
+        #cancel:hover{
+            background-color: rgb(255, 142, 142);
+            color: red;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        form textarea{
+            resize: none;
+        }
+    </style>
+{% endblock css %}
+
+{% block content %}
+
+<div class="container">
+    <h2>Notes</h2>
+    <form action="{% url 'edit_saved_recipe' recipe_id %}" method="POST">
+        {% csrf_token %}
+        <textarea name="notes" id="notes" cols="120" rows="10">{{recipe.notes}}</textarea>
+        <div class="buttons">
+            <button class="btn" id="confirm" type="submit">Submit</button>
+            <button class="btn" id="cancel" type="cancel">Cancel</button>
+        </div>
+    </form>
+    
+
+</div>
+
+{% endblock content %}

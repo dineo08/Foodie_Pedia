@@ -1,0 +1,25 @@
+{% extends "account/account_base.html" %} 
+{% load static %} 
+{% block title %}Login{% endblock title %} 
+
+{% block content %}
+<div class="container">
+  <h1>Welcome to the Food Recipe Generator</h1>
+  <h1>Login</h1>
+  <div class="imgcontainer">
+    <img src="{% static 'img/logins.png' %}" alt="logins" class="avatar" />
+  </div>
+  <form action="{% url 'login' %}" method="post">
+    {% csrf_token %} {{form.as_p}}
+    <button type="submit">Login</button>
+  </form>
+  <label>
+    <p>
+      Don't have have Account <a href="{% url 'sign_up' %}"><b>Create an Account</b></a>
+      <br /><br />Don't remember password
+      <a href="password.html"><b>ResetPassword</b></a>
+    </p>
+  </label>
+</div>
+
+{% endblock content %}

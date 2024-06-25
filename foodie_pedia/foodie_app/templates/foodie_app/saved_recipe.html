@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}- Saved Recipes{% endblock title %}
+
+{% block css %}
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/savedrecipes.css' %}">
+{% endblock css %}
+
+
+{% block content %}
+
+<div class="container">
+    <h1 class="recipe-title">Saved Recipes</h1>
+    <div class="recipe-list">
+    <!-- Repeat .recipe-item div for each saved recipe -->
+        {% if size > 0 %}
+            {% for fav in favs %}
+                <div class="recipe-item">
+                    <h2 class="recipe-name">{{fav.recipe_id.recipe_name}}</h2>
+                    
+                    <div class="recipe-summary">
+                        <p align="center">
+                            {% if fav.notes == '' or fav.notes == None %}
+                            Nothing to display yet
+                            {% else %}
+                            {{fav.notes}}
+                            {% endif %}
+                        </p>
+                    </div>
+                
+                    <div class="buttons">
+                        <a href="{% url 'saved_recipe_details' fav.favourite_recipe_id %}">
+                            <button class="btn view-recipe-btn">View Recipe</button>
+                        </a>
+                        <a href="{% url 'edit_saved_recipe' fav.favourite_recipe_id %}">
+                            <button class="btn view-recipe-btn" onclick=>Edit Notes</button>
+                        </a>
+                        <form action="{% url 'delete_saved_recipe' fav.favourite_recipe_id %}" method="post" id="deleteForm">
+                            {% csrf_token %}
+                            <button class="btn save-recipe-btn" onclick="confirmDelete()">Remove Recipe From Favourite</button>
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+                <h2>No Saved Recipes yet</h2>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock content %}

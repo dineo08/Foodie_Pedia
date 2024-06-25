@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}- Home{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock css %}
+
+{% block content %}
+
+<div class="container">
+    <input type="text" id="searchInput" class="search-input" placeholder="Enter your Item ">
+    <button class="add-button" onclick="addSearchTerm()">Add Item</button>
+</div>
+
+<div class="ingredient-list">
+    <h2>Your List of Ingredients</h2>
+    <ul id="searchTermsList" class="search-terms"></ul>
+
+    <button id="searchRecipeBtn" class="button-ingredients">Search Recipe</button>
+
+</div>
+<form id="myForm" action="{% url 'results' %}" method="post" hidden>
+    {% csrf_token %}
+  <input type="text" name="ings" id="ings">
+  <button type="submit">Submit</button>
+</form>
+
+{% endblock content %}
+
+{% block js %}
+<script>
+    var btn = document.getElementById("searchRecipeBtn").addEventListener("click", () => {
+        var toPush = ""
+        var theList = document.getElementsByClassName("search-term-item");
+
+        for (let index = 0; index < theList.length; index++) {
+            const element = theList[index].innerHTML.replace('<button class="remove-button">Remove</button>', "");
+            //console.log(element);
+            toPush += element + "_";
+        }
+
+        //window.alert("Clicked");
+        
+        document.getElementById("ings").setAttribute("value", toPush);
+        document.getElementById("myForm").submit();
+        
+        
+    });
+
+
+    function addSearchTerm() {
+        var searchTerm = document.getElementById("searchInput").value.trim();
+        if (searchTerm !== "") {
+            var searchBox = document.getElementById("searchInput");
+            searchBox.value = "";
+            var searchTermsList = document.getElementById("searchTermsList");
+            var listItem = document.createElement("li");
+            listItem.textContent = searchTerm;
+            listItem.classList.add("search-term-item");
+
+            var removeButton = document.createElement("button");
+            removeButton.textContent = "Remove";
+            removeButton.classList.add("remove-button");
+            removeButton.onclick = function () {
+                listItem.remove();
+            };
+
+            listItem.appendChild(removeButton);
+            searchTermsList.appendChild(listItem);
+        }
+    }
+</script>
+
+{% endblock js %}

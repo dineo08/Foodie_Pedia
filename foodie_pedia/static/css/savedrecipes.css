@@ -1,0 +1,105 @@
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #eae0ca;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    
+}
+
+.video-background {
+    display: block;
+}
+
+.recipe-title {
+    /*
+    font-family: "Kunstler Script", sans-serif;
+    */
+    text-align: center;
+    font-size: 80px;
+    color: black;
+    margin-bottom: 40px;
+}
+
+.recipe-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.recipe-item {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-name {
+    /*
+    font-family: "Kunstler Script", sans-serif;
+    */
+    font-size: 40px;
+    color: black;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.recipe-summary {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.recipe-summary img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-summary p {
+    font-size: 18px;
+    color: #555;
+}
+
+.buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #b4895d !important;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform property for animation */
+    margin: 0 10px;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #7c6152;
+    transform: scale(1.1); /* Scale the button to 110% on hover */
+}
+
+.view-recipe-btn {
+    background-color: #7c6152;
+}
+
+.view-recipe-btn:hover {
+    background-color: #fff;
+    color: #b4895d;
+}
+
+.delete-recipe-btn {
+    background-color: #ff2e63;
+}
+
+.delete-recipe-btn:hover {
+    background-color: #fff;
+    color: #ff2e63;
+}
